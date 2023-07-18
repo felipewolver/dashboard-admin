@@ -10,3 +10,4 @@ nodemon: yarn add nodemon -D
 ... yarn add body-parser cors helmet morgan
 
 Configurações de instalação do frontend
+Redux: yarn add react-redux @reduxjs/toolkit
