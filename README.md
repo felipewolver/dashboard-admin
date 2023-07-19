@@ -12,4 +12,5 @@ nodemon: yarn add nodemon -D
 Configurações de instalação do frontend
 Redux: yarn add react-redux @reduxjs/toolkit
 Outras bibiotecas: yarn add @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/x-data-grid 
-Biblioteca para construir gráficos no dashboard: yarn add @nivo/core @nivo/bar @nivo/geo @nivo/pie 
+Biblioteca para construir gráficos no dashboard: yarn add @nivo/core @nivo/bar @nivo/geo @nivo/pie
+Obs instalar essa versão do datepicker: yarn add react-datepicker@4.8.0
