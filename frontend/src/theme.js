@@ -32,7 +32,7 @@ export const tokensDark = {
       50: "#f0f0f0", // manually adjusted
       100: "#fff6e0",
       200: "#ffedc2",
-      300: "#ffe3a3",
+      300: "#ffe3a3", 
       400: "#ffda85",
       500: "#ffd166",
       600: "#cca752",
@@ -69,12 +69,12 @@ export const tokensDark = {
               // palette values for dark mode
               primary: {
                 ...tokensDark.primary,
-                main: tokensDark.primary[400],
+                main: tokensDark.primary[400], // vai ser chamado como prop em const theme da função useThemme theme.palette.primary.main
                 light: tokensDark.primary[400],
               },
               secondary: {
                 ...tokensDark.secondary,
-                main: tokensDark.secondary[300],
+                main: tokensDark.secondary[300], // vai ser chamado como prop em const theme da função useThemme theme.palette.secondary.main
               },
               neutral: {
                 ...tokensDark.grey,

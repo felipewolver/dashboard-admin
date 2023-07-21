@@ -1,3 +1,5 @@
+/* Simplifica ao chamar os imports dos diretórios ex: import Navbar from "../../components/Navbar" 
+   simplificando para from "Navbar" senao funcionar, importar de froma normal*/
 {
     "compilerOptions": {
         "baseUrl": "src"
