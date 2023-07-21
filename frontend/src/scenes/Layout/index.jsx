@@ -10,16 +10,16 @@ import Sidebar from "../../components/Sidebar";
 
 const Layout = () => {
 
-    const isNonMobile = useMediaQuery('(min-width: 600px)'); // variável q vai alternar para responsivo se não eh mobile ou eh.. quando tiver em 600px 
+    const isNonMobile = useMediaQuery('(min-width: 600px)'); // variável q vai alternar para responsivo se não eh mobile ou eh.. Vai iniciar não responsivo, soh quando a tela tiver 600px 
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     return ( 
        
         <Box display={isNonMobile ? "flex" : "block"} width='100%' heigth='100%' >
-            <Sidebar 
+            <Sidebar // propiedades da Sidebar vinda como parametro do component Sidebar q recebe as variáveis de mesmo nome
                 isNonMobile={isNonMobile}
-                drawerWidth='250px' // Largura da sidebar.
+                drawerWidth='250px' // Largura da sidebar q foi configurada diretamente aqui.
                 isSideBarOpen={isSidebarOpen}
                 setIsSideBarOpen={setIsSidebarOpen}
             />

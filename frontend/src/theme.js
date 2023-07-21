@@ -82,7 +82,7 @@ export const tokensDark = {
               },
               background: {
                 default: tokensDark.primary[600],
-                alt: tokensDark.primary[500],
+                alt: tokensDark.primary[500], // vai ser chamado no backgroundColor: theme.palette.background.alt como tema de fundo
               },
             }
           : {

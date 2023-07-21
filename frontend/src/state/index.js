@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    mode: 'dark' // o initialState q tem a prop mode atribuida q vai iniciar com a cor do tema de fundo dark
+    mode: 'dark', // o initialState q tem a prop mode atribuida q vai iniciar com a cor do tema de fundo dark
+    userId: "63701cc1f03239b7f700000e"
 };
 
 // globalSlice vai fazer a configuração iniciais do Redux.

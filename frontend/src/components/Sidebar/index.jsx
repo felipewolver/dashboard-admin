@@ -107,7 +107,7 @@ const Sidebar = ({
     const [active, setActive] = useState('');
     const navigate = useNavigate();
     const theme = useTheme();
-
+    
     useEffect(() => {
         setActive(pathname.substring(1));
 
@@ -142,8 +142,8 @@ const Sidebar = ({
                                         ECOMVISION
                                     </Typography>
                                 </Box>
-                                {!isNonMobile && ( // A negação vai dizer q se estah em modo responsivo e vai receber o icone ChevronLeft
-                                    <IconButton onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
+                                {!isNonMobile && ( // A negação vai dizer q eh o oposto do não responsivo, ou seja se estah em modo responsivo, vai aparecer o icone ChevronLeft
+                                    <IconButton onClick={() => setIsSideBarOpen(!isSideBarOpen)}> {/* a negação(!) vai fechar a sidebar quando clicar no botao q por padrao, iniciava com true */}
                                         <ChevronLeft />
 
                                     </IconButton>
@@ -188,7 +188,7 @@ const Sidebar = ({
                                                 { icon }
                                             </ListItemIcon>
                                             <ListItemText primary={text} />
-                                            {active === lcText && ( // o icone chevronR... soh vai aparecer nas url atuais. se estou pagina dashboard o icone aparece do lado do direito do texto clicado q depois vai ser a url atual.
+                                            {active === lcText && ( // o icone chevronR... soh vai aparecer nas url atuais. se estou na pagina dashboard o icone aparece do lado direito do texto sendo a url atual, se for em outra pag. vai seguir o mesmo processo.
                                                 <ChevronRightOutlined sx={{ ml: 'auto' }} />
                                             )}
 
@@ -198,8 +198,6 @@ const Sidebar = ({
                                 )
 
                             }) }
-                            
-                       
                         </List>
 
                     </Box>

@@ -40,8 +40,9 @@ const DB_URL = process.env.DB_URL;
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}, console.log("Conectado ao Banco!") )
+})
 .then(() => {
+
     app.listen(PORT, () => console.log("Servidor Online!! Port: "+ PORT))
 })
 .catch((err) => console.log("Ocorreu um erro: ", err));
