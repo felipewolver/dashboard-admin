@@ -97,6 +97,7 @@ const navItems = [
 ];
 
 const Sidebar = ({ 
+    user,
     drawerWidth,
     isSideBarOpen,
     setIsSideBarOpen,
@@ -104,7 +105,7 @@ const Sidebar = ({
     }) => {
     
     const { pathname } = useLocation();
-    const [active, setActive] = useState('');
+    const [active, setActive] = useState(''); // variável de controle pra alternar a cor de textos e ícones e alterna a Url atual.
     const navigate = useNavigate();
     const theme = useTheme();
     
@@ -169,7 +170,7 @@ const Sidebar = ({
                                     <ListItem key={text} disablePadding >
                                         <ListItemButton 
                                             onClick={() => {
-                                                navigate(`/${lcText}`); // navigate vai pegar o text e colocar numa url para ir para outra página Ex: localhost:5173/products
+                                                navigate(`/${lcText}`); // Ao clicar num <ListItemButton, o navigate vai pegar o text e colocar numa url para ir para outra página Ex: localhost:5173/products
                                                 setActive(lcText); // ao clicar em um texto, eh colocado o texto no setActive q foi armazenado na const lcText
                                             } } 
                                             sx={{ 
@@ -181,7 +182,7 @@ const Sidebar = ({
                                         > 
                                             <ListItemIcon 
                                                 sx={{  
-                                                    ml: 'rem', // margin a esquerda dos icones do array navItens
+                                                    ml: '2rem', // margin a esquerda dos icones do array navItens
                                                     color: active === lcText ? theme.palette.primary[600] : theme.palette.secondary[200],
                                                 }}
                                             >
@@ -199,6 +200,36 @@ const Sidebar = ({
 
                             }) }
                         </List>
+
+                    </Box>
+
+                    <Box position="absolute" bottom="-20rem" >
+                        <Divider />
+                        <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem" >
+                            <Box component="img" alt="profile"
+                                src={profileImage}
+                                height="40px"
+                                width="40px"
+                                borderRadius="50%"
+                                sx={{ objectFit: "cover" }}    
+                            />
+                            <Box textAlign="left">
+                                <Typography fontWeight="bold" fontSize="0.9rem" sx={{ color: theme.palette.secondary[100] }} > 
+                                    {user.name}
+
+                                </Typography>
+                                <Typography fontWeight="bold" fontSize="0.8rem" sx={{ color: theme.palette.secondary[200] }} > 
+                                    {user.occupation}
+
+                                </Typography>
+
+                            </Box>
+                            <SettingsOutlined sx={{
+                                color: theme.palette.secondary[300],
+                                fontSize: "25px" }} 
+                            />
+
+                        </FlexBetween>
 
                     </Box>
 

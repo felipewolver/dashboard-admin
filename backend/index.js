@@ -11,6 +11,10 @@ import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
 
+import User from "./models/User.js";
+// Importando os dados de User e atribuindo o nome pra dataUser do arquivo data/index.js
+import { dataUser } from "./data/index.js";
+
 // Configurações
 dotenv.config();
 
@@ -29,7 +33,7 @@ app.use(cors());
 
 // Rotas
 app.use('/client', clientRoutes);
-app.use('/general', generalRoutes);
+app.use('/general', generalRoutes); 
 app.use('/management', managementRoutes);
 app.use('/sales', salesRoutes);
 
@@ -42,7 +46,9 @@ mongoose.connect(DB_URL, {
     useUnifiedTopology: true,
 })
 .then(() => {
-
     app.listen(PORT, () => console.log("Servidor Online!! Port: "+ PORT))
+
+    // Somente insere os dados uma vez
+    // User.insertMany(dataUser);
 })
 .catch((err) => console.log("Ocorreu um erro: ", err));

@@ -18,14 +18,26 @@ import {
     useTheme, 
     Toolbar, // <div semâtica..
     IconButton, // <button
-    InputBase } from "@mui/material";
+    InputBase, 
+    Box,
+    Typography,
+    Button,
+    Menu,
+    MenuItem} from "@mui/material";
 
 
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
 
     const theme = useTheme(); // O useTheme() vai executar a prop theme exportada de <ThemeProvider do App.jsx onde theme tem a função createTheme(t...)
     const dispatch = useDispatch(); // dispatch vai executar a reducer setMode() da pasta state no evento onClick={} q vai se tornar uma action.
+
+    const [anchorEl, setAnchorEl] = useState(null)
+    const isOpen = Boolean(anchorEl);
+
+
+    const handleClick = (event) => setAnchorEl(event.currentTarget);
+    const handleClose = () => setAnchorEl(null);
 
     return (
  
@@ -71,6 +83,44 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                     <IconButton>
                         <SettingsOutlined sx={{ fontSize: '25px' }} />
                     </IconButton>
+                    <FlexBetween>
+                        <Button onClick={handleClick} sx={{ 
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            textTransform: 'none',
+                            gap: '1rem'  }} 
+                        > 
+                            <Box component="img" alt="profile"
+                                src={profileImage}
+                                height="32px"
+                                width="32px"
+                                borderRadius="50%"
+                                sx={{ objectFit: "cover" }}    
+                            />
+                            <Box textAlign="left">
+                                <Typography fontWeight="bold" fontSize="0.9rem" sx={{ color: theme.palette.secondary[100] }} > 
+                                    {user.name}
+
+                                </Typography>
+                                <Typography fontWeight="bold" fontSize="0.8rem" sx={{ color: theme.palette.secondary[200] }} > 
+                                    {user.occupation}
+
+                                </Typography>
+                            </Box>
+                            <ArrowDropDownOutlined 
+                                    sx={{ color: theme.palette.secondary[300], fontSize: '25px' }} 
+                            />
+                        </Button>
+                        <Menu anchorEl={anchorEl} open={isOpen} 
+                            onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                        >
+                            <MenuItem onClick={handleClose}> Log Out </MenuItem>
+
+                        </Menu>
+
+                    </FlexBetween>
+
                 </FlexBetween>
 
             </Toolbar>
