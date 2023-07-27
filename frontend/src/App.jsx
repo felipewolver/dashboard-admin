@@ -8,6 +8,8 @@ import { themeSettings } from "./theme";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./scenes/Dashboard";
 import Layout from "./scenes/Layout";
+import Products from "./scenes/Products";
+
 
 
 function App() {
@@ -28,9 +30,10 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
             <Routes>
-              <Route element={<Layout />} > {/* Route Layout vai englobar todas as páginas do app */}
+              <Route element={<Layout />} > {/* Route Layout vai englobar todas as páginas do app. Aqui possui os components Sidebar e Navbar  */}
                 <Route path="/" element={<Navigate to='/dashboard' replace />} /> {/* path='/' Dashboard eh a página principal do projeto em localhost:5173/ */}
                 <Route path='/dashboard' element={<Dashboard />} />
+                <Route path="/products" element={<Products />} />
               
               </Route>
 
