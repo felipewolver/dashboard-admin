@@ -9,13 +9,13 @@ export const getProducts = async (req, res) => {
 
         const productWithStats = await Promise.all(
             products.map(async (product) => {
-                const stats = await ProductStat.find({
+                const stat = await ProductStat.find({
                     productId: product._id 
                 })
                 
                 return {
                     ...product._doc,
-                    stats // Vai retornar o productStat com nome stats na lista de produtos
+                    stat // Vai retornar o productStat com nome stat na lista de produtos
                 }
             })
         );
