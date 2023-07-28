@@ -12,7 +12,7 @@ import { Box,
     useMediaQuery
 } from "@mui/material";
 import Header from "../../components/Header";
-import { useGetProductQuery } from "../../state/api";
+import { useGetProductsQuery } from "../../state/api";
 
 
 /* Componente Product q vai ser usado no componente Products em uma função
@@ -86,7 +86,7 @@ const Product = ({
 const Products = () => {
 
     const isNonMobile = useMediaQuery("(min-width: 1000px)");
-    const {data, isLoading} = useGetProductQuery(); 
+    const {data, isLoading} = useGetProductsQuery(); 
     // console.log("Products: ", data); 
     
 
