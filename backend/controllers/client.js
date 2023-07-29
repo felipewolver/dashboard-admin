@@ -65,10 +65,21 @@ export const getTransactions = async (req, res) => {
         const sortFormatted = Boolean(sort) ? generateSort() : {};
 
         const transactions = await Transaction.find({
-            $or: [{ cost: {$regex: new RegExp(search, "i")} }]
+            $or: [
+                { cost: {$regex: new RegExp(search, "i")} },
+                { userId: {$regex: new RegExp(search, "i")} },
+            ]
+            
+        })
+        .sort(sortFormatted)
+        .skip(page * pageSize)
+        .limit(pageSize);
+
+        const total = await Transaction.countDocuments({
+            name: { $regex: search, $options: "i" }
         });
 
-        res.status(200).json();
+        res.status(200).json({ transactions, total });
 
     } catch (error) {
         console.log("Ocorreu um erro: ", error);

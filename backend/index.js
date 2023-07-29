@@ -56,7 +56,7 @@ mongoose.connect(DB_URL, {
     // User.insertMany(dataUser);
     //Product.insertMany(dataProduct);
     //ProductStat.insertMany(dataProductStat);
-    Transaction.insertMany(dataTransaction);
+    //Transaction.insertMany(dataTransaction);
    
 })
 .catch((err) => console.log("Ocorreu um erro: ", err));

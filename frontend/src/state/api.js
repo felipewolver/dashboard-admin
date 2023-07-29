@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3333' }),
     reducerPath: 'adminApi',
-    tagTypes: ['User', 'Products', 'Customers'], 
+    tagTypes: ['User', 'Products', 'Customers', 'Transactions'], 
     endpoints: (build) => ({ // endpoints vai pegar as funçoes do backend com o parametro build e buscar os métodos http GET, POST, PUT, DELETE
         getUser: build.query({ // getUser vai buscar a função getUser do backend q busca o user pelo id
             query: (id) => `general/user/${id}`, // url vinda do backend da rotas /general
@@ -17,8 +17,16 @@ export const api = createApi({
         getCustomers: build.query({
             query: () => 'client/customers',
             providesTags: ['Customers']
+        }),
+        getTransactions: build.query({
+            query: ({ page, pageSize, sort, search }) => ({
+                url: '/client/transactions',
+                method: 'GET',
+                params: { page, pageSize, sort, search }
+            }),
+            providesTags: ['Transactions']
         })
     })
 });
 
-export const { useGetUserQuery, useGetProductsQuery, useGetCustomersQuery } = api;
+export const { useGetUserQuery, useGetProductsQuery, useGetCustomersQuery, useGetTransactionsQuery } = api;
