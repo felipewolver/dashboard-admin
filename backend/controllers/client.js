@@ -1,6 +1,7 @@
 import Product from "../models/Product.js";
 import ProductStat from "../models/ProductStat.js";
 import User from "../models/User.js";
+import Transaction from "../models/Transaction.js";
 
 
 // Função que vai listar as estatiticas por produto
@@ -37,6 +38,37 @@ export const getCustomers = async (req, res) => {
             .select('-password');
 
         res.status(200).json(customers);
+
+    } catch (error) {
+        console.log("Ocorreu um erro: ", error);
+    }
+}
+
+
+export const getTransactions = async (req, res) => {
+    try {
+        /* Vai classificar por ordem decrescente o campo userId
+           Ex: {"field": "userId", "sort": "desc"} */
+        const { page = 1, pageSize = 20, sort = null, search = "" } = req.query;
+
+        // Função que vai deixar a classificação formatada. Ex { userId -1 }
+        const generateSort = () => {
+            
+            const sortParsed = JSON.parse(sort);
+            const sortFormatted = {
+                [sortParsed.field]: sortParsed.sort = "asc" ? 1 : -1
+            };
+
+            return sortFormatted;
+        }
+
+        const sortFormatted = Boolean(sort) ? generateSort() : {};
+
+        const transactions = await Transaction.find({
+            $or: [{ cost: {$regex: new RegExp(search, "i")} }]
+        });
+
+        res.status(200).json();
 
     } catch (error) {
         console.log("Ocorreu um erro: ", error);

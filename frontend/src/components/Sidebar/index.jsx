@@ -126,7 +126,7 @@ const Sidebar = ({
                     anchor="left"
                     sx={{
                         width: drawerWidth,
-                        "& .MuiDrawer-paper": {
+                        "& .MuiDrawer-paper": { // Sobrescrevendo o estilo da classe .MuiDrawer.. da sidebar com &
                             color: theme.palette.secondary[200],
                             backgroundColor: theme.palette.background.alt,
                             boxSizing: 'border-box',
