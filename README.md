@@ -8,6 +8,7 @@ dotenv: yarn add dotenv -D
 mongoose: yarn add mongoose 
 nodemon: yarn add nodemon -D
 ... yarn add body-parser cors helmet morgan
+Geography country: yarn add country-iso-2-to-3
 
 ## Configurações de instalação do frontend
 Redux: yarn add react-redux @reduxjs/toolkit
