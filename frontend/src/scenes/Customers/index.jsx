@@ -31,8 +31,8 @@ const Customers = () => {
             field: "phoneNumber",
             headerName: "Phone Number",
             flex: 0.5,
-            renderCell: (params) => {
-                return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3"); // expressão regular para mascara de celular
+            renderCell: (params) => { // RenderCell(Renderizar celula na DataGrid)
+                return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3"); // expressão regular para mascara de tel. celular
             }
         },
         {
