@@ -4,14 +4,14 @@ Projeto MERN(MongoDB, Express, React, NodeJS) Painel administrativo. Um desenvol
 ## Configurações de instalação do backend:
 Express: npm install express ou com yarn add se desejar, yarn add express -D (onde -D eh para instalar em ambiente de desenvolvimento). Soh usei yarn add para instalar as bibliotecas. Faça as instalaçoes conforme a evolução do projeto.
 
-dotenv: yarn add dotenv -D
-mongoose: yarn add mongoose 
-nodemon: yarn add nodemon -D
-... yarn add body-parser cors helmet morgan
+dotenv: yarn add dotenv -D       <br/>
+mongoose: yarn add mongoose      <br/>
+nodemon: yarn add nodemon -D     <br/>
+... yarn add body-parser cors helmet morgan      <br/>
 Geography country: yarn add country-iso-2-to-3
 
 ## Configurações de instalação do frontend
-Redux: yarn add react-redux @reduxjs/toolkit
+Redux: yarn add react-redux @reduxjs/toolkit     
 Outras bibiotecas: yarn add @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/x-data-grid 
-Biblioteca para construir gráficos no dashboard: yarn add @nivo/core @nivo/bar @nivo/geo @nivo/pie
+Biblioteca para construir gráficos no dashboard: yarn add @nivo/core @nivo/bar @nivo/geo @nivo/pie 
 Obs instalar essa versão do datepicker: yarn add react-datepicker@4.8.0
