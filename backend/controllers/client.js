@@ -81,7 +81,7 @@ export const getTransactions = async (req, res) => {
         .limit(pageSize); // a var. pageSize inicia com 20, aqui vai limitar 20 registros por página.
 
         const total = await Transaction.countDocuments({
-            name: req._id // Fazendo assim name: { $regex: search, $options: "i" }, o total = 0  
+            name: req._id // Fazendo assim name: { $regex: search, $options: "i" }, o total = 0, ou seja, não estah funcionando 
         });
         console.log("Total: ",total);
         
@@ -110,6 +110,12 @@ export const getGeography = async (req, res) => {
             return acc;
 
         }, {});
+
+        const formattedLocation = Object.entries(mappedLocation).map(([country, count]) => {
+            return { id: country, value: count }
+        });
+
+        res.status(200).json(formattedLocation);
 
     } catch (error) {
         res.status(404).json({ message: error.message });
