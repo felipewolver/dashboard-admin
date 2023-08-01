@@ -83,10 +83,9 @@ export const getTransactions = async (req, res) => {
         const total = await Transaction.countDocuments({
             name: req._id // Fazendo assim name: { $regex: search, $options: "i" }, o total = 0, ou seja, não estah funcionando 
         });
-        console.log("Total: ",total);
         
         res.status(200).json({ transactions, total });
-
+        
     } catch (error) {
         console.log("Ocorreu um erro: ", error);
         
