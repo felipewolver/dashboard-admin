@@ -12,6 +12,12 @@ import Products from "./scenes/Products";
 import Customers from "./scenes/Customers";
 import Transactions from "./scenes/Transactions";
 import Geography from "./scenes/Geography";
+import Overview from "./scenes/Overview";
+import Daily from "./scenes/Daily";
+import Monthly from "./scenes/Monthly";
+import Breakdown from "./scenes/Breakdown";
+import Admins from "./scenes/Admins";
+
 
 
 function App() {
@@ -21,7 +27,8 @@ function App() {
   /* theme vai ser usado em ThemeProvider como uma prop. para ser enviado para
      outros components. O createTheme() vair criar themeSettings() q possui 
      as configs de cor recebendo como parametro mode para iniciar o tema de 
-     fundo de initialState q eh uma prop vinda da funçao globalSlice da pasta state */
+     fundo de initialState q eh uma prop vinda da funçao globalSlice da pasta state 
+     ctrl + Alt + para baixo para digita em conjunto*/
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
 
@@ -39,7 +46,12 @@ function App() {
                 <Route path="/customers" element={<Customers />} />
                 <Route path="/transactions" element={<Transactions />} />
                 <Route path="/geography" element={<Geography />} />
-              
+                <Route path="/overview" element={<Overview />} />
+                <Route path="/daily" element={<Daily />} />   
+                <Route path="/monthly" element={<Monthly />} />   
+                <Route path="/breakdown" element={<Breakdown />} />   
+                <Route path="/admin" element={<Admins />} />   
+                 
               </Route>
 
             </Routes>

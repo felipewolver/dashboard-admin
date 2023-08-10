@@ -2,7 +2,7 @@ import express from "express";
 import { getUser } from "../controllers/general.js";
 
 
-// Rotas /general 
+// Rotas /general onde será utilizados as requisiçoes http GET,POST...
 const router = express.Router();
 
 // Na url vai ficar localhost:3333/general/user/:id

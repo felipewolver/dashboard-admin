@@ -79,7 +79,7 @@ const navItems = [
         icon: <CalendarMonthOutlined />
     },
     {
-        text: "Breackdown",
+        text: "Breakdown",
         icon: <PieChartOutline />
     },
     {

@@ -93,7 +93,8 @@ export const getTransactions = async (req, res) => {
     }
 }
 
-
+/* Essa função vai exibir os usuários em um mapa geográfico no frontend
+   Não foi implementado algum model para esta função somente o model User. */
 export const getGeography = async (req, res) => {
     try {
         const users = await User.find();
