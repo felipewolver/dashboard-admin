@@ -16,13 +16,15 @@ import Product from './models/Product.js';
 import ProductStat from './models/ProductStat.js';
 import Transaction from './models/Transaction.js';
 import OverallStat from './models/overallStat.js';
+import AffiliateStat from './models/AffiliateStat.js';
 
 // Importando os dados de User da const dataUser do arquivo data/index.js
 import { dataUser, 
     dataProduct, 
     dataProductStat, 
     dataTransaction,
-    dataOverallStat  } from "./data/index.js";
+    dataOverallStat,
+    dataAffiliateStat  } from "./data/index.js";
 
 // Configurações
 dotenv.config();
@@ -63,6 +65,7 @@ mongoose.connect(DB_URL, {
     //ProductStat.insertMany(dataProductStat);
     //Transaction.insertMany(dataTransaction);
     //OverallStat.insertMany(dataOverallStat);
+    //AffiliateStat.insertMany(dataAffiliateStat);
    
 })
 .catch((err) => console.log("Ocorreu um erro: ", err));

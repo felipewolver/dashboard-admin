@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-
+// Estatísticas gerais
 const overallStatSchema = new mongoose.Schema({
     
     totalCustomers: Number,
