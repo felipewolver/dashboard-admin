@@ -17,6 +17,7 @@ import Daily from "./scenes/Daily";
 import Monthly from "./scenes/Monthly";
 import Breakdown from "./scenes/Breakdown";
 import Admins from "./scenes/Admins";
+import Performance from "./scenes/Performance";
 
 
 
@@ -51,6 +52,7 @@ function App() {
                 <Route path="/monthly" element={<Monthly />} />   
                 <Route path="/breakdown" element={<Breakdown />} />   
                 <Route path="/admin" element={<Admins />} />   
+                <Route path="/performance" element={<Performance /> } />
                  
               </Route>
 

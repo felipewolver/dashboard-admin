@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import User from "../models/User.js";
+import Transaction from "../models/Transaction.js";
 
 
 export const getAdmins = async (req, res) => {
@@ -15,6 +16,7 @@ export const getAdmins = async (req, res) => {
     }
 }
 
+// Funçao q exibe os desenpenhos das vendas dos usuários
 export const getUserPerformance = async (req, res) => {
     try {
         const { id } = req.params;
@@ -27,13 +29,19 @@ export const getUserPerformance = async (req, res) => {
                 foreignField: "userId",
                 as: "affiliateStats" // vai renomear o nome para affiliateStats
             } },
-            { $unwind: "affiliateStats" }
+            { $unwind: "$affiliateStats" }
 
         ]);
 
         const saleTransactions = await Promise.all(
-            userWithStats[0].affiliateStats.affiliateSales
-        )
+            userWithStats[0].affiliateStats.affiliateSales.map((id) => {
+                return Transaction.findById(id)
+            })
+        );
+        const filteredSaleTransactions = saleTransactions.filter((transaction) => 
+            transaction !== null);
+
+        res.status(200).json({ user: userWithStats[0], sales: filteredSaleTransactions });
 
     } catch (error) {
         console.log("Ocorreu um erro: ", error);
