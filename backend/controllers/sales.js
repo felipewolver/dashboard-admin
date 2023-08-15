@@ -1,12 +1,12 @@
-import OverallStat from "../models/overallStat.js";
+import OverallStat from "../models/OverallStat.js";
 
 
 // Função q vai exibir as estatísticas gerais de vendas
 export const getSales = async (req, res) => {
     try {
-        const overallStat = await OverallStat.find();
+        const overallStats = await OverallStat.find();
 
-        res.status(200).json(overallStat[0]);
+        res.status(200).json(overallStats[0]);
 
     } catch (error) {
         console.log("Ocorreu um erro:", error);

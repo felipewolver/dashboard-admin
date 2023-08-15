@@ -15,7 +15,7 @@ import User from "./models/User.js";
 import Product from './models/Product.js';
 import ProductStat from './models/ProductStat.js';
 import Transaction from './models/Transaction.js';
-import OverallStat from './models/overallStat.js';
+import OverallStat from './models/OverallStat.js';
 import AffiliateStat from './models/AffiliateStat.js';
 
 // Importando os dados de User da const dataUser do arquivo data/index.js
@@ -60,12 +60,12 @@ mongoose.connect(DB_URL, {
     app.listen(PORT, () => console.log("Servidor Online!! Port: "+ PORT))
 
     // Somente insere os dados uma vez, depois q inserir no db deixar comentado.
-    // User.insertMany(dataUser);
-    //Product.insertMany(dataProduct);
-    //ProductStat.insertMany(dataProductStat);
-    //Transaction.insertMany(dataTransaction);
-    //OverallStat.insertMany(dataOverallStat);
-    //AffiliateStat.insertMany(dataAffiliateStat);
+   // User.insertMany(dataUser);
+   // Product.insertMany(dataProduct);
+   // ProductStat.insertMany(dataProductStat);
+   // Transaction.insertMany(dataTransaction);
+   // OverallStat.insertMany(dataOverallStat);
+   // AffiliateStat.insertMany(dataAffiliateStat);
    
 })
 .catch((err) => console.log("Ocorreu um erro: ", err));

@@ -8,7 +8,7 @@ import Header from "../../components/Header";
 
 const Overview = () => {
     
-    const [view, setView] = useState('units');
+    const [view, setView] = useState('sales');
 
     return (
         

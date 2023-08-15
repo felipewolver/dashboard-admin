@@ -119,8 +119,9 @@ const OverviewChart = ({ isDashboard = false, view }) => {
                 legendOffset: 36,
                 legendPosition: 'middle'
             }}
-            axisLeft={{
+            axisLeft={{ // aqui configura todo o designer do chart a esquerda
                 orient: "left",
+                tickValues: 5, // Vai exibir os valore em K no chart Ex 20k,40k. Neste ex com value 5 vai de 50k ateh 250k
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,

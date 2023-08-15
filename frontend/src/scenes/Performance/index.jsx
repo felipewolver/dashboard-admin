@@ -12,8 +12,7 @@ const Performance = () => {
 
     const theme = useTheme();
     const userId = useSelector((state) => state.global.userId);
-    const { data, isLoading } = useGetUserPerformanceQuery(userId); console.log(data);
-
+    const { data, isLoading } = useGetUserPerformanceQuery(userId); //console.log(data);
 
 
     const columns = [
@@ -23,44 +22,33 @@ const Performance = () => {
             flex: 1,
         },
         {
-            field: "name",
-            headerName: "Name",
-            flex: 0.5,
-        },
-        {
-            field: "email",
-            headerName: "Email",
-            flex: 0.5,
-        },
-        {
-            field: "phoneNumber",
-            headerName: "Phone Number",
-            flex: 0.5,
-            renderCell: (params) => { // RenderCell(Renderizar celula na DataGrid)
-                return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3"); // expressão regular para mascara de tel. celular
-            }
-        },
-        {
-            field: "country",
-            headerName: "Country",
-            flex: 0.4,
-        },
-        {
-            field: "occupation",
-            headerName: "Occupation",
+            field: "userId",
+            headerName: "User ID",
             flex: 1,
         },
         {
-            field: "role",
-            headerName: "Role",
+            field: "createdAt",
+            headerName: "CreatedAt",
+            flex: 1,
+        },
+        {
+            field: "products",
+            headerName: "# of Products",
             flex: 0.5,
+            sortable: false,
+            renderCell: (params) => params.value.length
+        },
+        {
+            field: "cost",
+            headerName: "Cost",
+            flex: 1,
+            renderCell: (params) => `$${Number(params.value).toFixed(2)}`
         },
     ]
 
 
-    return (  <Box m="1.5rem 2.5rem">  
-    <Header title="Admins" subtitle="Gerenciando admins e lista de admins" /> </Box> /*
-        
+    return ( 
+
         <Box m="1.5rem 2.5rem">  
             <Header title="Performance" subtitle="Acompanhe o desempenho de vendas de seus afiliados aqui" />
             <Box  mt="40px" height="75vh"
@@ -90,7 +78,7 @@ const Performance = () => {
                 }}
             >
                 <DataGrid loading={isLoading || !data}
-                    rows={data || []}
+                    rows={data && data.sales || []}
                     getRowId={(row) => row._id}
                     columns={columns}
                     components={{ ColumnMenu: CustomColumnMenu }}
@@ -101,7 +89,7 @@ const Performance = () => {
             </Box>
 
         </Box>
-    */ ); 
+    ); 
 }
 
 

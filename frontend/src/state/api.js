@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3333' }),
     reducerPath: 'adminApi',
-    tagTypes: ['User', 'Products', 'Customers', 'Transactions', 'Geography', 'Sales', 'Admins', 'Performance'], 
+    tagTypes: ['User', 'Products', 'Customers', 'Transactions', 'Geography', 'Sales', 'Admins', 'Performance', 'Dashboard'], 
     endpoints: (build) => ({ // endpoints vai pegar as funçoes do backend com o parametro build e buscar os métodos http GET, POST, PUT, DELETE
         getUser: build.query({ // getUser vai buscar a função getUser do backend q busca o user pelo id
             query: (id) => `general/user/${id}`, // url vinda do backend da rotas /general
@@ -41,6 +41,10 @@ export const api = createApi({
         getUserPerformance: build.query({
             query: (id) => `/management/performance/${id}`,
             providesTags: ['Performance']
+        }),
+        getDashboardStats: build.query({
+            query: () => '/general/dashboard',
+            providesTags: ['Dashboard']
         })
 
     })
@@ -53,4 +57,5 @@ export const { useGetUserQuery,
     useGetGeographyQuery,
     useGetSalesQuery,
     useGetAdminsQuery,
-    useGetUserPerformanceQuery } = api;
+    useGetUserPerformanceQuery,
+    useGetDashboardStatsQuery } = api;
